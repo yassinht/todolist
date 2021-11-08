@@ -1,0 +1,24 @@
+<h1>liste des taches </h1>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos, let i = index " >
+      <h1> {{todo.todoName}} </h1> 
+        <div [ngClass]="{encours:todo.todoStatus,terminee:!todo.todoStatus}" >
+       
+            <a  href={{todo.image}}> 
+                <img src={{todo.image}}>
+              
+          
+        <!-- {{todo.todoStatus}} -->
+       
+        <!-- <img [src]="todo.image"> -->
+
+    </a>
+        <button type="button" class="btn btn-primary" [disabled]="todo.todoStatus" (click)="onchangeStatus(i)">en cours</button>
+        <button type="button" class="btn btn-success" [disabled]="!todo.todoStatus" (click)="onchangeStatus(i)" >terminée</button>        
+
+    </div>
+    </li>
+    <!-- <li class="list-group-item">{{todotwo}}</li>
+    <li class="list-group-item">{{todothree}}</li>
+    <li class="list-group-item">{{todofour}}</li> -->
+  </ul>
